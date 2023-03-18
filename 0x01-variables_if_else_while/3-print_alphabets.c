@@ -6,17 +6,21 @@
   */
 int main(void)
 {
-	int n = 97;
-	int n = 65;
+	char c;
+	char d;
 
-	while (n <= 122)
-	{
-		putchar(n);
-	}
-	while (m <= 90)
-	{
-		putchar(m);
-	}
+	c = 'a';
+	d = 'A';
+	while
+		(c <= 'z') {
+			putchar(c);
+			c++;
+		}
+	while
+		(d <= 'z') {
+			putchar(c);
+			d++;
+		}
 	putchar('\n');
-		return (0);
+	return (0);
 }

@@ -1,32 +1,47 @@
-#include "mainn.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
- *  * _calloc - Allocates memory for an array of a certain number
- *   *           of elements each of an inputted byte size.
- *    * @nmemb: The number of elements.
- *     * @size: The byte size of each array element.
+ *  * *_memset - fills memory with a constant byte
+ *   * @s: memory area to be filled
+ *    * @b: char to copy
+ *     * @n: number of times to copy b
  *      *
  *       * Return: pointer to the memory area s
 */
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
+	{
+		s[i] = b;
+	}
+
+	return (s);
+}
+
+/**
+ *  * *_calloc - allocates memory for an array
+ *   * @nmemb: number of elements in the array
+ *    * @size: size of each element
+ *     *
+ *      * Return: pointer to allocated memory
+*/
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *mem;
-	char *filler;
-	unsigned int index;
+	char *ptr;
 
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 
-	mem = malloc(size * nmemb);
+	ptr = malloc(size * nmemb);
 
-	if (mem == NULL)
+	if (ptr == NULL)
 		return (NULL);
 
-	filler = mem;
+	_memset(ptr, 0, nmemb * size);
 
-	for (index = 0; index < (size * nmemb); index++)
-		filler[index] = '\0';
-
-	return (mem);
+	return (ptr);
 }
+
